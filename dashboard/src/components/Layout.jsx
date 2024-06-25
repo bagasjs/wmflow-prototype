@@ -12,7 +12,7 @@ export default function Layout({ children }) {
                         </label>
                     </div> 
                 </div>
-                <a className="text-xl">Balance</a>
+                <a className="text-xl">WM Flow</a>
             </div>
             <div className="navbar-end">
             </div>
