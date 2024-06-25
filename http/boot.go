@@ -7,6 +7,7 @@ import (
 	"github.com/bagasjs/balance/app"
 	"github.com/bagasjs/balance/http/controllers"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 var APP_URL = ":8080"
@@ -19,6 +20,11 @@ func Boot(app *app.State) {
 
     r := fiber.New()
     r.Static("/static", "./res/static/")
+    r.Use(cors.New(cors.Config{
+        AllowOrigins: "*",
+        AllowHeaders: "Origin, Content-Type, Accept, Access-Control-Allow-Origin",
+    }))
+
     r.Get("/dashboard", func(c *fiber.Ctx) error {
         return c.SendFile("./res/dashboard/index.html")
     })
