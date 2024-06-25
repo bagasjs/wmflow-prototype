@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    image: personal-web
+    build:
+      args:
+        user: root
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www
+    networks:
+      - reverse-proxy
+
+networks:
+  reverse-proxy:
+    external: true
