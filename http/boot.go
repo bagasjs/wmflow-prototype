@@ -20,6 +20,7 @@ func Boot(app *app.State) {
 
     r := fiber.New()
     r.Static("/static", "./res/static/")
+    r.Static("/assets", "./res/dashboard/assets")
     r.Use(cors.New(cors.Config{
         AllowOrigins: "*",
         AllowHeaders: "Origin, Content-Type, Accept, Access-Control-Allow-Origin",
